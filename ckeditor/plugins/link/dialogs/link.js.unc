@@ -29,29 +29,33 @@ CKEDITOR.dialog.add( 'link', function( editor )
     ckg_dialog = CKEDITOR.dialog;
 	 var fckgSMBInputId;
      var defaultFBLang = {
-        InternalLink:  "Interner Link",
-        LinkText: "<span style='font-weight:bold'>Link Anzeigetext</span><br />Benutzerdefinierter Text (hat Vorrang vor Seitenname oder ID)",
-        InternalMedia: "Interne Mediendatei",
-        LinkPageOrId: 'Seitenname erzeugt Standard-Dokuwiki-Link: <code>[[namespace:page|]]</code><br />ID erzeugt: <code>[[namespace:page|namespace:page]]</code>',
-        MediaFileLink: "Link zur Mediendatei",
-        SMBLabel: "Samba Share",
-        GetHeadingsLabel: 'Kopfzeilen abrufen',
-        QStringLabel: 'Abfragezeichenfolge (Zum Beispiel: value_1=1&value_2=2) ',	
-        ResetQS: 'Abfragezeichenfolge zurücksetzen',
-        NotSetOption: 'Not Set',
-        AdvancedInfo: "Um Anker aus Dokuwiki-Kopfzeilen zu erstellen, klicken Sie auf die Schaltfläche Kopfzeilen abrufen, wählen die Kopfzeile aus und klicken auf OK. Sie können zurückgehen, eine neue Seite auswählen und neue Kopfzeilen abrufen.",    
-        AdvancedTabPrompt: 'Verwenden Sie die Registerkarte Erweitert zum Erstellen von Seitenankern und Abfragezeichenfolgen',
-        SMBExample: "Share-URL im Schema eingeben: \\\\Server\\directory\\file", 
-        InterWikiLink: "Interwiki Link",
-        InterWikiType: "Interwiki Typ",      
-        InterwikiPlaceHolder: "Interwiki Ersetzungstext",
-        InterwikiInfo:"<div style='min-width:350px; white-space: pre-wrap;border:1px solid #cccccc; margin:auto; overflow:auto; padding:4px;line-height:125%;'>Dokuwiki\'s interwiki-Links sind Abkürzungen, die wie folgt aussehen: <span style='font-weight:600'>[[wp&gt;Shakespeare]]</span>, wodurch ein Link zum englischen Wikipedia-Artikel über Shakespeare erstellt wird. Der Teil <span style='font-weight:600'>wp</span> bzeichnet das Linkmuster; Der Text, folgend mit '<span style='font-weight:900'>&gt;</span>', wird in den Link eingefügt und ersetzt den Plazhalter, der durch geschweifte Klammern begrenzt wird, wie in <span style='font-weight:600'>{NAME}</span>. Wenn kein Platzhalter vorhanden ist, wird der Ersatztext an das Ende des Links angehängt.</div>",
+        InternalLink: "internal link",
+        LinkText: "<span style='font-weight:bold'>Link Display Text</span><br />User defined Text (takes precedence over Page Name or  ID)",
+        InternalMedia: "internal media",
+        LinkPageOrId: 'Page Name creates default Dokuwiki Link: <code>[[namespace:page|]]</code><br />ID creates: <code>[[namespace:page|namespace:page]]</code>',
         MediaFileLink: "link to media file",
-        RLText:"<span style='font-weight:bold'>URL Anzeigetext (optional)</span>",
-        LinkDispText: "Link Anzeigetext (optional)",
+        SMBLabel: "Samba Share",
+        GetHeadingsLabel: 'Get Headings'	,
+        QStringLabel: 'Query String (For example: value_1=1&value_2=2) ',	
+        ResetQS: 'Reset Query String',
+        NotSetOption: 'Not Set',
+        AdvancedInfo: "To create anchors from Dokuwiki headers, click on the Get Headings button, select the header, click OK. You can go back, select a new page and get new headers.",
+        AdvancedTabPrompt: 'Use the advanced tab to create page anchors and query strings',
+        SMBExample: "Enter your share as: \\\\Server\\directory\\file", 
+        InterWikiLink: "Interwiki Link",
+        InterWikiType: "Interwiki Type",
+        InterwikiPlaceHolder: "Interwiki Replacement Text",
+        InterwikiInfo: "<div style='min-width:350px; white-space: pre-wrap;border:1px solid #cccccc; margin:auto; overflow:auto; padding:4px;line-height:125%;'>Dokuwiki\'s " +
+        "interwiki links are short-cuts which look like this: <span style='font-weight:600'>[[wp&gt;Shakespeare]]</span>, which will create a link to the English Wikipedia article on Shakespeare.  " +
+        "The <span style='font-weight:600'>wp</span> part designates a link pattern;  " + 
+        "the text following the '<span style='font-weight:900'>&gt;</span>' will be inserted into the link, replacing  a place holder, which is enclosed in curly brackets, "  +
+        "as in <span style='font-weight:600'>{NAME}</span>. When there is no place holder, the replacement text will be appended to the end of the link.</div>",
+        MediaFileLink: "link to media file",
+        URLText:"<span style='font-weight:bold'>URL Display Text (optional, defaults to url)</span>",
+        LinkDispText: "Link display text (optional)",
      };   
-     var fck_Lang = editor.lang.fbrowser ? editor.lang.fbrowser : defaultFBLang;
     
+     var fck_Lang = editor.lang.linkfb ? editor.lang.linkfb : defaultFBLang; 
     var  translateItem = function (js_code) {     
       if(fck_Lang[js_code] && fck_Lang[js_code] != "") {
             return fck_Lang[js_code];

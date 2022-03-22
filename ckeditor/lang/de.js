@@ -27,6 +27,6 @@ CKEDITOR.lang['de']['linkfb'] = {
         InterwikiPlaceHolder: "Interwiki Ersetzungstext",
         InterwikiInfo:"<div style='min-width:350px; white-space: pre-wrap;border:1px solid #cccccc; margin:auto; overflow:auto; padding:4px;line-height:125%;'>Dokuwiki\'s interwiki-Links sind Abkürzungen, die wie folgt aussehen: <span style='font-weight:600'>[[wp&gt;Shakespeare]]</span>, wodurch ein Link zum englischen Wikipedia-Artikel über Shakespeare erstellt wird. Der Teil <span style='font-weight:600'>wp</span> bzeichnet das Linkmuster; Der Text, folgend mit '<span style='font-weight:900'>&gt;</span>', wird in den Link eingefügt und ersetzt den Plazhalter, der durch geschweifte Klammern begrenzt wird, wie in <span style='font-weight:600'>{NAME}</span>. Wenn kein Platzhalter vorhanden ist, wird der Ersatztext an das Ende des Links angehängt.</div>",
         MediaFileLink: "link to media file",
-        RLText:"<span style='font-weight:bold'>URL Anzeigetext (optional)</span>",
+        URLText:"<span style='font-weight:bold'>URL Anzeigetext (optional)</span>",
         LinkDispText: "Link Anzeigetext (optional)",
      };   
